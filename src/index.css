@@ -109,6 +109,42 @@ h5 {
   transform: none;
 }
 
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2.5deg);
+  }
+}
+
+@keyframes floaty-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-10px, 14px, 0) rotate(-3deg);
+  }
+}
+
+.animate-floaty {
+  animation: floaty 9s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floaty-slow 12s ease-in-out infinite;
+}
+
+.arch-img {
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.arch-frame:hover .arch-img {
+  transform: scale(1.06);
+}
+
 .blob-mask {
   border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
 }
@@ -129,4 +165,13 @@ input[type="range"] {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-floaty,
+  .animate-float-slow,
+  .arch-img {
+    animation: none !important;
+    transition: none !important;
+  }
 }

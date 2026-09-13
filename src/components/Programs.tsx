@@ -10,7 +10,7 @@ export default function Programs() {
           eyebrow="Our Programs"
           title="Nutrition care for every"
           highlight="body & goal"
-          copy="Eight clinically designed programs, each led by a specialist dietitian and adjusted every single week based on your data."
+          copy="Expert nutrition support for your health and goals."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -68,7 +68,7 @@ export default function Programs() {
               <div>
                 <h3 className="text-xl font-bold">Not sure which program fits you?</h3>
                 <p className="mt-1 text-sm text-white/70">
-                  Take our 2-minute assessment or talk to a dietitian — completely free.
+                  Get matched with the right nutrition support.
                 </p>
               </div>
             </div>

@@ -8,17 +8,17 @@ const pillars = [
   {
     icon: "Flask" as const,
     title: "Nutrition with purpose",
-    copy: "Personalized strategies for metabolic, hormonal, digestive and therapeutic nutrition needs.",
+    copy: "Support for metabolic, hormonal, digestive and therapeutic needs.",
   },
   {
     icon: "Users" as const,
     title: "Care with a personalized approach",
-    copy: "We design nutrition care around your individual health, lifestyle and goals.",
+    copy: "Care shaped around your health, lifestyle and goals.",
   },
   {
     icon: "Apple" as const,
     title: "Practical and sustainable",
-    copy: "Simple guidance that fits your everyday routine and supports lasting progress.",
+    copy: "Simple guidance for lasting progress.",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function About() {
                   src={IMG_MAIN}
                   alt="Dietitian at The Nutrition Club clinic"
                   loading="lazy"
-                  className="h-[26rem] w-full object-cover"
+                  className="h-104 w-full object-cover"
                 />
               </div>
 
@@ -68,7 +68,7 @@ export default function About() {
               eyebrow="About The Nutrition Club Clinic"
               title="Nutrition with purpose."
               highlight="Care with a personalized approach."
-              copy="The Nutrition Club Clinic is a professional nutrition and dietetics clinic specializing in metabolic health, weight management, hormonal health, gut health and therapeutic nutrition."
+              copy="Personalised nutrition care for weight, metabolic, hormonal and gut health."
             />
 
             <div className="mt-9 space-y-5">
@@ -121,7 +121,7 @@ export default function About() {
           />
 
           <div className="relative mt-16">
-            <div className="absolute top-14 right-0 left-0 hidden h-px bg-gradient-to-r from-brand-100 via-brand-300 to-brand-100 lg:block" />
+            <div className="absolute top-14 right-0 left-0 hidden h-px bg-linear-to-r from-brand-100 via-brand-300 to-brand-100 lg:block" />
             <div className="grid gap-8 lg:grid-cols-4">
               {steps.map((s, i) => (
                 <Reveal key={s.no} delay={i * 110}>

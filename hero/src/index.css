@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand palette ───────────────────────────────── */
+  --color-brand: #2e9b4b;
+  --color-brand-600: #27883f;
+  --color-brand-700: #1f6d33;
+  --color-brand-900: #113d21;
+  --color-ink: #123a22;
+  --color-ink-soft: #3d5b48;
+  --color-cream: #f2f7ec;
+  --color-cream-deep: #e7f0de;
+  --color-leaf: #a8dcb1;
+  --color-leaf-soft: #cde9d2;
+  --color-apricot: #f6bd8e;
+  --color-apricot-soft: #fad9be;
+
+  /* ── Type ────────────────────────────────────────── */
+  --font-display: "Playfair Display", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* ── Motion ──────────────────────────────────────── */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: #fff;
+  }
+}
+
+@utility text-balance-pretty {
+  text-wrap: pretty;
+}
+
+/* ── Scroll reveal ─────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-y, 30px), 0) scale(var(--reveal-scale, 1));
+  transition:
+    opacity 1s var(--ease-out-soft),
+    transform 1.1s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ── Squiggle draw-on ──────────────────────────────── */
+.squiggle-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.2s var(--ease-out-soft) 0.35s;
+}
+
+.is-visible .squiggle-path,
+.is-visible.squiggle-path {
+  stroke-dashoffset: 0;
+}
+
+/* ── Ambient movement ──────────────────────────────── */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2.5deg);
+  }
+}
+
+@keyframes floaty-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-10px, 14px, 0) rotate(-3deg);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-floaty {
+  animation: floaty 9s ease-in-out infinite;
+}
+
+.animate-floaty-slow {
+  animation: floaty-slow 12s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
+
+.arch-img {
+  transition: transform 1.4s var(--ease-out-soft);
+}
+
+.arch-frame:hover .arch-img {
+  transform: scale(1.06);
+}
+
+/* ── Nav underline ─────────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out-soft);
+}
+
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .squiggle-path {
+    stroke-dashoffset: 0 !important;
+  }
+  .animate-floaty,
+  .animate-floaty-slow,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}

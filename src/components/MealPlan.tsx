@@ -26,7 +26,7 @@ export default function MealPlan() {
           eyebrow="Free Nutrition Guides"
           title="Learn. Understand. Make"
           highlight="better choices."
-          copy="Explore our free nutrition guides for practical information on common health and nutrition concerns."
+          copy="Practical guides for common health and nutrition concerns."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -49,9 +49,7 @@ export default function MealPlan() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-[12.5px] text-ink-soft/70">
-          Free guides are for general educational purposes. Personalized nutrition needs may vary.
-        </p>
+        <p className="mt-8 text-center text-[12.5px] text-ink-soft/70">For general education only.</p>
       </div>
     </section>
   );

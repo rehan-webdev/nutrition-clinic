@@ -8,6 +8,7 @@ import Plans from "@/components/Plans";
 import Programs from "@/components/Programs";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
+import Transformations from "@/components/Transformations";
 import Tools from "@/components/Tools";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Team />
         <Plans />
         <Testimonials />
+        <Transformations />
         <Faq />
       </main>
       <Footer />
